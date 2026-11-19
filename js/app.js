@@ -62,7 +62,7 @@ function buildFullCampIllustrationDataUrl() {
 }
 
 const FALLBACK_ARTWORK_URL = buildFullCampIllustrationDataUrl();
-const CANDIDATE_SOURCES = ['./assets/bg.png', './assets/bg.jpg', 'bg.png', 'bg.jpg'];
+const CANDIDATE_SOURCES = ['./assets/bg.JPEG', './assets/bg.jpg', 'bg.png', 'bg.jpg'];
 let candidateIdx = 0;
 
 sceneImg.addEventListener('load', () => {
