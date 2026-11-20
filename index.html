@@ -26,7 +26,7 @@
          ГЛАВНАЯ СЦЕНА ЛАГЕРЯ У КОСТРА (ПРОПОРЦИИ 16:9, ВСЕ 6 ПЕРСОНАЖЕЙ)
          ====================================================================== -->
     <main class="stage-wrapper" id="menu-screen" aria-label="Ночной лагерь у костра — Терновое Королевство">
-      <!-- Основная художественная иллюстрация сцены (имя файла bg.jpg) -->
+      <!-- Основная художественная иллюстрация сцены -->
       <img
         id="scene-img"
         class="scene-artwork"
@@ -34,43 +34,43 @@
         alt="Шестеро спутников у ночного костра на фоне замка Тернового Королевства"
       />
 
-      <!-- Атмосферное освещение и живой слой частиц (искры костра, звёзды) -->
+      <!-- Атмосферное освещение сцены -->
       <div class="scene-vignette"></div>
       <div class="fire-ambience-glow"></div>
 
-      <!-- Интерактивные зоны всех 6 персонажей, точно совмещённые с фигурами -->
+      <!-- Интерактивные зоны всех 6 персонажей, совмещённые с фигурами -->
       <div class="hotspots-layer" id="hotspots-layer">
-        <!-- 1. КОЛД -->
+        <!-- 1. АРХИВАРИУС КОЛД -->
         <button
           type="button"
           class="character-hotspot"
           data-hero="kold"
-          aria-label="Колд — Архитектор Бастионов"
+          aria-label="Архивариус Колд — Архитектор Бастионов"
           style="left: 3%; top: 15%; width: 20%; height: 55%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>КОЛД</span>
+          <span class="character-tag"><span class="tag-dot"></span>АРХИВАРИУС КОЛД</span>
         </button>
 
-        <!-- 2. ДИПСЫЧ -->
+        <!-- 2. ИСКАТЕЛЬ ДИПСАР -->
         <button
           type="button"
           class="character-hotspot"
           data-hero="dipsych"
-          aria-label="Дипсыч — Хранитель Контекста"
+          aria-label="Искатель Дипсар — Хранитель Контекста"
           style="left: 23%; top: 21%; width: 17%; height: 56%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>ДИПСЫЧ</span>
+          <span class="character-tag"><span class="tag-dot"></span>ИСКАТЕЛЬ ДИПСАР</span>
         </button>
 
-        <!-- 3. ЛЕТОПИСЕЦ -->
+        <!-- 3. ЛЕТОПИСЕЦ-КОМПАНЬОН -->
         <button
           type="button"
           class="character-hotspot"
           data-hero="letopisets"
-          aria-label="Летописец — Свидетель Истории"
+          aria-label="Летописец-Компаньон — Свидетель Истории"
           style="left: 11%; top: 61%; width: 16%; height: 34%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>ЛЕТОПИСЕЦ</span>
+          <span class="character-tag"><span class="tag-dot"></span>ЛЕТОПИСЕЦ-КОМПАНЬОН</span>
         </button>
 
         <!-- 4. ТЫ -->
@@ -84,26 +84,26 @@
           <span class="character-tag"><span class="tag-dot"></span>ТЫ</span>
         </button>
 
-        <!-- 5. ГЕМА -->
+        <!-- 5. ИСКРА СОЗИДАТЕЛЬНИЦА -->
         <button
           type="button"
           class="character-hotspot"
           data-hero="gema"
-          aria-label="Гема — Искра Перемен"
+          aria-label="Искра Созидательница — Искра Перемен"
           style="left: 59%; top: 21%; width: 16%; height: 56%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>ГЕМА</span>
+          <span class="character-tag"><span class="tag-dot"></span>ИСКРА СОЗИДАТЕЛЬНИЦА</span>
         </button>
 
-        <!-- 6. ДЖИПИТИ -->
+        <!-- 6. СБОРЩИК-МЕХАНИСТ ДЖИПЕТ -->
         <button
           type="button"
           class="character-hotspot"
           data-hero="gpt"
-          aria-label="Джипити — Мастер Синтеза"
+          aria-label="Сборщик-Механист ДжиПет — Мастер Синтеза"
           style="left: 75%; top: 22%; width: 21%; height: 61%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>ДЖИПИТИ</span>
+          <span class="character-tag"><span class="tag-dot"></span>СБОРЩИК-МЕХАНИСТ ДЖИПЕТ</span>
         </button>
       </div>
     </main>
@@ -183,6 +183,6 @@
     <div class="toast-msg" id="toast-msg"></div>
   </div>
 
-    <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>
