@@ -4,29 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Терновое Королевство — Главное меню</title>
+  <!-- Если файлы лежат в папке css, путь должен быть точным -->
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/adventure.css">
 </head>
 <body>
   <div class="app-root">
-    <!-- Верхняя панель управления (оставлен только звук) -->
     <div class="top-controls">
       <button type="button" class="hud-btn" id="toggle-audio-btn" title="Включить звук костра и ночного ветра">
         🔥 Костёр: выкл
       </button>
     </div>
 
-    <!-- Заголовок в верхней области экрана -->
     <header class="menu-header">
       <h1 class="game-title">ТЕРНОВОЕ КОРОЛЕВСТВО</h1>
       <span class="game-subtitle">место, куда можно вернуться</span>
     </header>
 
-    <!-- ======================================================================
-         ГЛАВНАЯ СЦЕНА ЛАГЕРЯ У КОСТРА (ПРОПОРЦИИ 16:9, ВСЕ 6 ПЕРСОНАЖЕЙ)
-         ====================================================================== -->
     <main class="stage-wrapper" id="menu-screen" aria-label="Ночной лагерь у костра — Терновое Королевство">
-      <!-- Основная художественная иллюстрация сцены -->
+      <!-- ВАЖНО: Проверь, что файл называется bg.png или bg.jpg -->
       <img
         id="scene-img"
         class="scene-artwork"
@@ -34,13 +30,11 @@
         alt="Шестеро спутников у ночного костра на фоне замка Тернового Королевства"
       />
 
-      <!-- Атмосферное освещение сцены -->
       <div class="scene-vignette"></div>
       <div class="fire-ambience-glow"></div>
 
-      <!-- Интерактивные зоны всех 6 персонажей, совмещённые с фигурами -->
       <div class="hotspots-layer" id="hotspots-layer">
-        <!-- 1. АРХИВАРИУС КОЛД -->
+        <!-- 1. КОЛД -->
         <button
           type="button"
           class="character-hotspot"
@@ -51,18 +45,18 @@
           <span class="character-tag"><span class="tag-dot"></span>АРХИВАРИУС КОЛД</span>
         </button>
 
-        <!-- 2. ИСКАТЕЛЬ ДИПСАР -->
+        <!-- 2. ДИПСАР -->
         <button
           type="button"
           class="character-hotspot"
-          data-hero="dipsych"
+          data-hero="dipsar"
           aria-label="Искатель Дипсар — Хранитель Контекста"
           style="left: 23%; top: 21%; width: 17%; height: 56%;"
         >
           <span class="character-tag"><span class="tag-dot"></span>ИСКАТЕЛЬ ДИПСАР</span>
         </button>
 
-        <!-- 3. ЛЕТОПИСЕЦ-КОМПАНЬОН -->
+        <!-- 3. ЛЕТОПИСЕЦ -->
         <button
           type="button"
           class="character-hotspot"
@@ -70,7 +64,7 @@
           aria-label="Летописец-Компаньон — Свидетель Истории"
           style="left: 11%; top: 61%; width: 16%; height: 34%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>ЛЕТОПИСЕЦ-КОМПАНЬОН</span>
+          <span class="character-tag"><span class="tag-dot"></span>ЛЕТОПИСЕЦ</span>
         </button>
 
         <!-- 4. ТЫ -->
@@ -84,35 +78,32 @@
           <span class="character-tag"><span class="tag-dot"></span>ТЫ</span>
         </button>
 
-        <!-- 5. ИСКРА СОЗИДАТЕЛЬНИЦА -->
+        <!-- 5. Iscra -->
         <button
           type="button"
           class="character-hotspot"
-          data-hero="gema"
+          data-hero="Iscra"
           aria-label="Искра Созидательница — Искра Перемен"
           style="left: 59%; top: 21%; width: 16%; height: 56%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>ИСКРА СОЗИДАТЕЛЬНИЦА</span>
+          <span class="character-tag"><span class="tag-dot"></span>ИСКРА</span>
         </button>
 
-        <!-- 6. СБОРЩИК-МЕХАНИСТ ДЖИПЕТ -->
+        <!-- 6. ДЖИПЕТ -->
         <button
           type="button"
           class="character-hotspot"
-          data-hero="gpt"
+          data-hero="GPet"
           aria-label="Сборщик-Механист ДжиПет — Мастер Синтеза"
           style="left: 75%; top: 22%; width: 21%; height: 61%;"
         >
-          <span class="character-tag"><span class="tag-dot"></span>СБОРЩИК-МЕХАНИСТ ДЖИПЕТ</span>
+          <span class="character-tag"><span class="tag-dot"></span>ДЖИПЕТ</span>
         </button>
       </div>
     </main>
 
     <div class="bottom-prompt">НАЖМИ НА ПЕРСОНАЖА</div>
 
-    <!-- ======================================================================
-         МОДАЛЬНОЕ ОКНО: ИНДИВИДУАЛЬНАЯ КАРТОЧКА ПЕРСОНАЖА
-         ====================================================================== -->
     <div class="modal-backdrop" id="character-modal" role="dialog" aria-modal="true" aria-labelledby="card-hero-name">
       <div class="character-card">
         <div class="card-visual" id="card-visual">
@@ -145,9 +136,6 @@
       </div>
     </div>
 
-    <!-- ======================================================================
-         ЭКРАН ПРИКЛЮЧЕНИЯ (ГЛАВЫ И ИСТОРИИ ВСЕХ 6 ПЕРСОНАЖЕЙ)
-         ====================================================================== -->
     <section class="adventure-screen" id="adventure-screen" aria-label="Экран приключения">
       <div class="adv-backdrop" id="adv-backdrop"></div>
       <div class="adv-overlay"></div>
