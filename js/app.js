@@ -42,28 +42,12 @@ function showToast(text) {
   showToast._timer = setTimeout(() => toastMsg.classList.remove('show'), 3200);
 }
 
-function buildFullCampIllustrationDataUrl() {
-  const c = document.createElement('canvas');
-  c.width = 1600;
-  c.height = 900;
-  const g = c.getContext('2d');
-  const sky = g.createLinearGradient(0, 0, 0, 620);
-  sky.addColorStop(0, '#090e1b');
-  sky.addColorStop(0.5, '#152036');
-  sky.addColorStop(1, '#131923');
-  g.fillStyle = sky;
-  g.fillRect(0, 0, 1600, 900);
-  const fireLight = g.createRadialGradient(785, 670, 15, 785, 640, 520);
-  fireLight.addColorStop(0, 'rgba(255, 165, 60, 0.45)');
-  fireLight.addColorStop(1, 'transparent');
-  g.fillStyle = fireLight;
-  g.fillRect(220, 240, 1140, 660);
-  return c.toDataURL('image/jpeg', 0.9);
-}
-
-const FALLBACK_ARTWORK_URL = buildFullCampIllustrationDataUrl();
-const CANDIDATE_SOURCES = ['./assets/bg.JPEG', './assets/bg.jpg', 'bg.png', 'bg.jpg'];
+const CANDIDATE_SOURCES = ['./assets/bg.JPEG', './assets/bg.jpg', './assets/bg.png', 'bg.JPEG'];
 let candidateIdx = 0;
+
+if (sceneImg && sceneImg.complete && sceneImg.naturalWidth > 0) {
+  state.activeArtworkUrl = sceneImg.currentSrc || sceneImg.src;
+}
 
 sceneImg.addEventListener('load', () => {
   state.activeArtworkUrl = sceneImg.currentSrc || sceneImg.src;
@@ -74,8 +58,7 @@ sceneImg.addEventListener('error', () => {
   if (candidateIdx < CANDIDATE_SOURCES.length) {
     sceneImg.src = CANDIDATE_SOURCES[candidateIdx];
   } else {
-    state.activeArtworkUrl = FALLBACK_ARTWORK_URL;
-    sceneImg.src = FALLBACK_ARTWORK_URL;
+    showToast('Не удалось загрузить иллюстрацию сцены.');
   }
 });
 
@@ -83,7 +66,7 @@ function openCharacterCard(heroId) {
   const hero = HEROES_DATA[heroId];
   if (!hero) return;
   state.selectedHeroId = heroId;
-  const bgUrl = state.activeArtworkUrl || sceneImg.src || FALLBACK_ARTWORK_URL;
+  const bgUrl = state.activeArtworkUrl || sceneImg.src || './assets/bg.JPEG';
   cardVisual.style.backgroundImage = `url("${bgUrl}")`;
   cardVisual.style.backgroundSize = hero.crop.size;
   cardVisual.style.backgroundPosition = hero.crop.pos;
@@ -125,7 +108,7 @@ function startAdventure(heroId) {
   state.currentAdventureHero = hero;
   state.currentChapterIndex = 0;
   closeCharacterCard();
-  const bgUrl = state.activeArtworkUrl || sceneImg.src || FALLBACK_ARTWORK_URL;
+  const bgUrl = state.activeArtworkUrl || sceneImg.src || './assets/bg.JPEG';
   advBackdrop.style.backgroundImage = `url("${bgUrl}")`;
   advHeroTitle.textContent = `${hero.name} • ${hero.role.toUpperCase()}`;
   renderChapter();
